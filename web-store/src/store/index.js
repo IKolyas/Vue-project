@@ -10,8 +10,8 @@ export default new Vuex.Store({
     itemsFiltered: [],
     itemsBasket: [],
     basketSum: null,
-    basketURL: "/https://github.com/IKolyas/Vue-project/tree/master/store_server/basket",
-    catalogUrl: "/https://github.com/IKolyas/Vue-project/tree/master/store_server/catalog",
+    basketURL: "/api/basket",
+    catalogUrl: "/api/catalog",
     qItemPages: 6,
     priceFilter: {
       min: 0,
