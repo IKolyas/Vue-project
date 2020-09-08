@@ -92,7 +92,7 @@
                                 src="https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/car.png"
                                 alt="..."
                                 class="col-lg-3 pb-2 mx-2">
-                            <div class="col-lg-9 p-0"><h4>Free Delivery</h4>
+                            <div class="col-lg-9 p-0"><h3>Free Delivery</h3>
                                 <p>Worldwide delivery on all. Authorit tively morp next-generation innovation with
                                     extensive
                                     models</p></div>
@@ -101,7 +101,7 @@
                                 src="https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/corona.png"
                                 alt="..."
                                 class="col-lg-3 pb-2 mx-2">
-                            <div class=" col-lg-9 p-0"><h4>Sales & discounts</h4>
+                            <div class=" col-lg-9 p-0"><h3>Sales & discounts</h3>
                                 <p>Worldwide delivery on all. Authorit tively morp next-generation innovation with
                                     extensive
                                     models</p></div>
@@ -111,7 +111,7 @@
                                 alt="..."
                                 class="col-lg-3 pb-2 mx-2">
                             <div class="col-lg-9 p-0">
-                                <h4>Quality assurance</h4>
+                                <h3>Quality assurance</h3>
                                 <p>Worldwide delivery on all. Authorit tively morp next-generation innovation with
                                     extensive
                                     models

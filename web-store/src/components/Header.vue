@@ -37,7 +37,7 @@
                 </div>
                 <input type="text" class="form-control" aria-label="Text input with dropdown button"
                        placeholder="Search for Item...">
-                <button type="button"><i class="fas fa-search"></i></button>
+                <button type="button" aria-label="search"><i class="fas fa-search"></i></button>
             </div>
             <div class="rTop d-none d-sm-flex col-lg-3 ml-lg-auto justify-content-center justify-content-lg-end p-0 align-items-center">
                 <div class="basket__block" id="basket">

@@ -2,11 +2,11 @@
     <nav class="container">
         <div class="topNav d-none d-sm-flex flex-column flex-lg-row justify-content-center align-items-center">
             <ul class="topMenu d-flex flex-column flex-lg-row justify-content-center align-items-center p-0 m-0 ">
-                <router-link :to="{name: 'Index'}">
-                    <li><a href="#" class="menu__top__link">Home</a></li>
+                <router-link :to="{name: 'Index'}" tag="li" class="menu__top__link">
+                    Home
                 </router-link>
-                <router-link :to="{name: 'Products'}">
-                    <li><a href="#" class="menu__top__link">Man</a></li>
+                <router-link :to="{name: 'Products'}" tag="li">
+                    <a href="#" class="menu__top__link">Man</a>
                 </router-link>
                 <li><a href="#" class="menu__top__link">Women</a>
                     <ul class="d-none submenu row d-md-flex">
@@ -48,20 +48,20 @@
                         </li>
                     </ul>
                 </li>
-                <router-link :to="{name: 'Products'}">
-                    <li><a href="#" class="menu__top__link">Kids</a></li>
+                <router-link :to="{name: 'Products'}" tag="li">
+                    <a href="#" class="menu__top__link">Kids</a>
                 </router-link>
 
-                <router-link :to="{name: 'Products'}">
-                    <li><a href="#" class="menu__top__link">Accoseriese</a></li>
+                <router-link :to="{name: 'Products'}" tag="li">
+                    <a href="#" class="menu__top__link">Accoseriese</a>
                 </router-link>
 
-                <router-link :to="{name: 'Products'}">
-                    <li><a href="#" class="menu__top__link">Featured</a></li>
+                <router-link :to="{name: 'Products'}" tag="li">
+                    <a href="#" class="menu__top__link">Featured</a>
                 </router-link>
 
-                <router-link :to="{name: 'Products'}">
-                    <li><a href="#" class="menu__top__link">Hot Deals</a></li>
+                <router-link :to="{name: 'Products'}" tag="li">
+                    <a href="#" class="menu__top__link">Hot Deals</a>
                 </router-link>
 
             </ul>
