@@ -12,8 +12,8 @@ export default new Vuex.Store({
     basketSum: null,
     // basketURL: "/api/basket",
     // catalogUrl: "/api/catalog",
-    basketURL: "/Vue-project/store_server/basket",
-    catalogUrl: "/Vue-project/store_server/catalog",
+    basketURL: "https://github.com/IKolyas/Vue-project/tree/master/store_server/basket",
+    catalogUrl: "https://github.com/IKolyas/Vue-project/tree/master/store_server/catalog",
     qItemPages: 6,
     priceFilter: {
       min: 0,
