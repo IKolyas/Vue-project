@@ -33,10 +33,6 @@
   .buttBanBG {
     background-blend-mode: overlay;
   }
-  .basket__Product{
-    left: -35px!important;
-    top: 50px!important;
-  }
 }
 
 @media (min-width: 992px) {
@@ -106,10 +102,6 @@
     justify-content: center;
   }
   .offerText {
-    .topOfferLabel {
-      font-size: 2.5rem !important;
-    }
-
     .offerLabel {
       font-size: 3.5rem !important;
     }
