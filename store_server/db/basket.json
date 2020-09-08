@@ -3,21 +3,6 @@
  "countGoods": 2,
  "contents": [
   {
-   "id": 1,
-   "name": "blouse PEOPLE",
-   "price": 77,
-   "img": "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/man001.jpeg",
-   "images": [
-    "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/man001.jpeg"
-   ],
-   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum. Tellus mauris a diam maecenas sed enim ut sem. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. ",
-   "rating": null,
-   "material": "cotton",
-   "color": "green",
-   "size": "L",
-   "quantity": 1
-  },
-  {
    "id": 10,
    "name": "Ветровка",
    "price": 175,
