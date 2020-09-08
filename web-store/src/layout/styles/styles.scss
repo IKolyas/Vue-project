@@ -67,6 +67,11 @@ body {
 }
 
 .offer {
+  img {
+    max-width: 560px;
+    object-position: center center;
+    object-fit: cover;
+  }
   position: relative;
   .offerLink {
     transition: .4s;
