@@ -86,8 +86,8 @@
                     <router-link :to="{name: 'ShoppingCart'}">     
                         <a href="#" class="fa fa-shopping-cart my__cart px-2" aria-hidden="true"></a>
                     </router-link>
-                    <div class="btn-group btnNonSSM ">
-                        <router-link tag="button" class="btn btn-danger p-0" :to="{name: 'CheckOut'}">              
+                    <div class="btn-group">
+                        <router-link tag="button" class="btn btn-danger p-1" :to="{name: 'CheckOut'}">              
                             My Account
                         </router-link>
                     </div>

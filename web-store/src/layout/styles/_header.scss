@@ -219,20 +219,11 @@
 
 .topNav {
 
-  .topMenu li {
-    display: inline-block;
-    position: relative;
-    &:hover {
-      color: #E6855F;
-    }
-    a:hover {
-      color: #E6855F;
-    }
-  }
-
   .menu__top__link {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 2.5rem;
     text-decoration: none;
     color: $mainTextColor;
@@ -241,14 +232,14 @@
     text-transform: uppercase;
     padding: 0 1.5rem;
     border-bottom: 4px solid #ffffff;
-    transition-duration: .5s;
-
     &:hover {
       text-shadow: 2px 4px 6px rgba(150, 150, 150, 1);
       text-decoration: none;
       color: $mainTextColor;
       border-bottom: 4px solid $mainThemeColor;
+      cursor: pointer;
     }
+
     .submenu__img{
       object-position: center center;
       object-fit: cover;
@@ -264,6 +255,7 @@
     border: none;
     position: absolute;
     left: -100px;
+    top: 40px;;
     opacity: 0;
     z-index: 5;
     transform: perspective(600px) rotateX(-90deg);
@@ -276,7 +268,6 @@
       text-transform: uppercase;
       letter-spacing: 0.025em;
       color: #232323;
-
     }
 
     .subMenuLink {
@@ -287,13 +278,6 @@
       font-weight: 400;
       letter-spacing: 0.025em;
       color: #646464;
-      transition-duration: .7s;
-
-      &:hover {
-        text-decoration: none;
-        color: $mainThemeColor;
-        text-shadow: 2px 4px 6px rgba(150, 150, 150, 1);
-      }
     }
   }
 }
