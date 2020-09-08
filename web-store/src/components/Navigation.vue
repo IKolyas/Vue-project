@@ -2,13 +2,9 @@
     <nav class="container">
         <div class="topNav d-none d-sm-flex flex-column flex-lg-row justify-content-center align-items-center">
             <ul class="topMenu d-flex flex-column flex-lg-row justify-content-center align-items-center p-0 m-0 ">
-                <router-link :to="{name: 'Index'}" tag="li" class="menu__top__link">
-                    Home
-                </router-link>
-                <router-link :to="{name: 'Products'}" tag="li">
-                    <a href="#" class="menu__top__link">Man</a>
-                </router-link>
-                <li><a href="#" class="menu__top__link">Women</a>
+                <router-link :to="{name: 'Index'}" tag="li" class="menu__top__link">Home</router-link>
+                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Man</router-link>
+                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Women
                     <ul class="d-none submenu row d-md-flex">
                         <li class="col-4 d-flex flex-column mx-0 xp-0">
                             <h3 class="mb-0 mt-2">Women</h3>
@@ -47,23 +43,11 @@
                                  alt="subMan" class="mt-3 submenu__img">
                         </li>
                     </ul>
-                </li>
-                <router-link :to="{name: 'Products'}" tag="li">
-                    <a href="#" class="menu__top__link">Kids</a>
                 </router-link>
-
-                <router-link :to="{name: 'Products'}" tag="li">
-                    <a href="#" class="menu__top__link">Accoseriese</a>
-                </router-link>
-
-                <router-link :to="{name: 'Products'}" tag="li">
-                    <a href="#" class="menu__top__link">Featured</a>
-                </router-link>
-
-                <router-link :to="{name: 'Products'}" tag="li">
-                    <a href="#" class="menu__top__link">Hot Deals</a>
-                </router-link>
-
+                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Kids</router-link>
+                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Accoseriese</router-link>
+                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Featured</router-link>
+                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Hot Deals</router-link>
             </ul>
         </div>
         <div class="topNavMobile fixed-top d-block d-sm-none">
@@ -103,8 +87,8 @@
                         <a href="#" class="fa fa-shopping-cart my__cart px-2" aria-hidden="true"></a>
                     </router-link>
                     <div class="btn-group btnNonSSM ">
-                        <router-link class="p-0" :to="{name: 'CheckOut'}">              
-                            <button type="button" class="btn btn-danger">  My Account</button>
+                        <router-link tag="button" class="btn btn-danger p-0" :to="{name: 'CheckOut'}">              
+                            My Account
                         </router-link>
                     </div>
                 </div>
