@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-import Index from "../views/Index.vue";
-import Products from "../views/Products.vue";
-import SinglePage from "../views/SinglePage.vue";
-import CheckOut from "../views/CheckOut.vue";
-import ShoppingCart from "../views/ShoppingCart.vue";
+const Index = () => import('../views/Index.vue');
+const Products = () => import('../views/Products.vue');
+const SinglePage = () => import('../views/SinglePage.vue');
+const CheckOut = () => import('../views/CheckOut.vue');
+const ShoppingCart = () => import('../views/ShoppingCart.vue');
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
