@@ -19,24 +19,31 @@
                     :key="item.id"
                 />
             </div>
-            <div v-if="type === 'products'" class="row d-flex col-12 justify-content-around justify-content-lg-between p-0 mx-0 my-2" >
-                <div class="sortProd row col-12 d-flex align-items-center px-3 my-3">
+            <div v-if="type === 'products'" class="row d-flex justify-content-around justify-content-lg-between p-0 mx-0 my-2" >
+                <div class="sortProd col-12 d-flex align-items-center px-3 my-3">
                         <button class="btn btn-outline-secondary py-0" type="button">Sort By</button>
                         <select class="custom-select col-2 px-1 mx-2  py-0">
                             <option selected>Name</option>
                             <option value="1">Name</option>
                         </select>
-                        <button class="btn btn-outline-secondary py-0" type="button">Show</button>
-                        <select class="custom-select col-2 px-1 mx-2 py-0">
-                            <option selected>3</option>
-                            <option value="1">6</option>
-                            <option value="2">9</option>
-                            <option value="3">12</option>
+                        <button class="btn btn-outline-secondary py-0" 
+                                type="button"
+                                @click="viewAll(qView)"
+                        >Show
+                        </button>
+                        <select class="custom-select col-2 px-1 mx-2 py-0"
+                                v-model.number="qView"
+                                @change="viewAll(qView)"
+                        >
+                            <option value="3">3</option>
+                            <option selected>6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
                         </select>
                 
                 </div>
                 <div class="row d-flex col-12 p-0 mx-0 my-2 justify-content-around justify-content-lg-between">
-                    <transition-group name="list" class="row d-flex justify-content-center justify-content-lg-around">
+                    <transition-group name="list" class="row col-12 d-flex justify-content-center justify-content-lg-between m-0 p-0">
                 <Item 
                     class="list-item"
                     v-for="item in collections"
@@ -70,7 +77,8 @@
                                 </li>
                             </ul>
                         </nav>
-                        <button type="button">
+                        <button type="button"
+                        @click.prevent="viewAll()">
                             View All
                         </button>
                     </div>
@@ -101,15 +109,14 @@
         data() {
             return {
                 pagination: {},
+                qView: 6
             }
         },
         computed: {
             collections() {
                 this.$store.commit('filterItem', this.$store.state.priceFilter);
                 return this.paginate(this.$store.state.itemsFiltered);
-                
             },
-            
         },
 
         methods: {
@@ -131,12 +138,18 @@
                     pages: lodash.range(1, Math.ceil(totalItems / this.$store.state.qItemPages) + 1)
                 };
             },
+            viewAll(quantity=this.$store.state.itemsFiltered.length) {
+                this.$store.state.qItemPages = quantity;
+                this.setPage(1);
+            },
+
         },
         created() {
             this.setPage(1);
         },
         mounted() {
             this.$store.commit('getCatalog');
+            
         }
     }
 </script>
@@ -148,13 +161,13 @@
 }
 .list-item {
   display: inline-block;
-  margin-right: 10px;
 }
 .list-enter-active, .list-leave-active {
-  transition: all .5s;
+  transition: all .7s;
 }
 .list-enter, .list-leave-to /* .list-leave-active до версии 2.1.8 */ {
   opacity: 0;
+  position: absolute;
   transform: translateY(70px);
 }
 
