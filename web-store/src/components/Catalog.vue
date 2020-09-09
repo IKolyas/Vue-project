@@ -155,20 +155,5 @@
 </script>
 
 <style>
-.page-num:active {
-    color: red !important;
-    font-size: 700 !important;
-}
-.list-item {
-  display: inline-block;
-}
-.list-enter-active, .list-leave-active {
-  transition: all .7s;
-}
-.list-enter, .list-leave-to /* .list-leave-active до версии 2.1.8 */ {
-  opacity: 0;
-  position: absolute;
-  transform: translateY(70px);
-}
 
 </style>

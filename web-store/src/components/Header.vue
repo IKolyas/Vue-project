@@ -87,20 +87,5 @@
 </script>
 
 <style>
-    .basket-show{
-        position: absolute;
-        top: 63px;
-    }
-    .basket-show-enter-active {
-        transition: all .3s ease;
-    }
 
-    .basket-show-leave-active {
-        transition: all .3s cubic-bezier(0.7, 0.5, 0.8, 1.0);
-    }
-
-    .basket-show-enter, .basket-show-leave-to {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
 </style>
