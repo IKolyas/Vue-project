@@ -1,2 +1,4 @@
-npm i -D express nodemon
-npm run api
+set -e
+
+npm run build
+
