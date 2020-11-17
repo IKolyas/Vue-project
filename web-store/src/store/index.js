@@ -10,6 +10,19 @@ export default new Vuex.Store({
         product: [],
         sizesCategory: [],
         dropdownMenu: [],
+    items: [],
+    itemsFiltered: [],
+    itemsBasket: [],
+    basketSum: null,
+    basketURL: "/api/basket",
+    catalogUrl: "/api/catalog",
+    //basketURL: "https://raw.githubusercontent.com/IKolyas/Vue-project/master/store_server/db/basket.json",
+    //catalogUrl: "https://raw.githubusercontent.com/IKolyas/Vue-project/master/store_server/db/catalog.json",
+    qItemPages: 6,
+    priceFilter: {
+      min: 0,
+      max: 1000
+    }
 
     },
 
