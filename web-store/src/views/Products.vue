@@ -1,18 +1,19 @@
 <template>
     <div>
         <div class="newsProd">
-            <Breadcrubm />
+            <Breadcrubm/>
         </div>
         <main class="container my-5">
             <div class="row">
                 <div class="leftMenu col-12 col-md-3 d-flex flex-column ">
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion position-sticky fixed-top pt-3" id="accordionExample">
+
                         <div class="card border-0 rounded-0 pb-3">
-                            <div class="card-header bg-transparent prodCardHeader p-0" id="headingOne">
+                            <div class="card-header bg-transparent prodCardHeader p-0" id="categoryH">
                                 <h2 class="mb-0">
                                     <button class="btn btn-link btn-block text-left collapsed d-flex justify-content-between align-items-center"
                                             type="button" data-toggle="collapse"
-                                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            data-target="#category" aria-expanded="true" aria-controls="category">
                                         category
                                         <svg class="bi bi-caret-down-fill" width="1em" height="1em" viewBox="0 0 16 16"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -21,22 +22,26 @@
                                     </button>
                                 </h2>
                             </div>
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                            <div id="category" class="collapse" aria-labelledby="categoryH"
                                  data-parent="#accordionExample">
-                                <div class="drBtnContProd d-flex flex-column pl-3 pt-1">
-                                    <a href="#">Accessories</a>
-                                    <a href="#">Bags</a>
-                                    <a href="#">Denim</a>
-                                    <a href="#">Hoodies & Sweatshirts</a>
-                                    <a href="#">Jackets & Coats</a>
-                                    <a href="#">Pants</a>
-                                    <a href="#">Polos</a>
-                                    <a href="#">Shirts</a>
-                                    <a href="#">Shoes</a>
-                                    <a href="#">Shorts</a>
-                                    <a href="#">Sweaters & Knits</a>
-                                    <a href="#">T-Shirts</a>
-                                    <a href="#">Tanks</a>
+                                <div class="drBtnContProd d-flex flex-column pt-2"
+                                     v-if="$store.state.dropdownMenu" v-for="category of $store.state.dropdownMenu"
+                                >
+                                    <ul class="m-1 pl-2">
+                                        <h3 class="category__accordion"
+                                            @click="updateCatalog({category: category.id})"
+                                        >
+                                            {{category.title}}
+                                        </h3>
+                                        <li v-if="category.sub && category.sub.length > 0"
+                                            v-for="sub of category.sub">
+                                            <h4 class="subcategory__accordion pl-5"
+                                                @click="updateCatalog({category: category.id, subcategory: sub.id})"
+                                            >
+                                                {{sub.title}}
+                                            </h4>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -130,48 +135,20 @@
                         </nav>
                         <div class="checkSize row col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start align-items-center align-items-lg-start m-0 p-0">
                             <div class="m-0 p-0 col-12 d-flex justify-content-center justify-content-lg-start">
-                                <h4 class="m-0">Size</h4></div>
-                            <div class="row d-flex flex-column m-0 p-0 col-3">
-                                <div class="form-check form-check-inline checkFormProd">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                           value="option1">
-                                    <label class="form-check-label labelSize" for="inlineCheckbox1">XXS</label>
-                                </div>
-                                <div class="form-check form-check-inline checkFormProd">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                           value="option2">
-                                    <label class="form-check-label labelSize" for="inlineCheckbox2">L</label>
-                                </div>
+                                <h4 class="m-0">Size</h4>
                             </div>
-                            <div class="row d-flex flex-column m-0 p-0 col-3">
+                            <div v-for="size in $store.getters.sizesCatalog"
+                                 class="row d-flex flex-column m-0 p-0 col-3">
                                 <div class="form-check form-check-inline checkFormProd">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                           value="option2">
-                                    <label class="form-check-label labelSize" for="inlineCheckbox3">XS</label>
-                                </div>
-                                <div class="form-check form-check-inline checkFormProd">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
-                                           value="option2">
-                                    <label class="form-check-label labelSize" for="inlineCheckbox4">XL</label>
-                                </div>
-                            </div>
-                            <div class="row d-flex flex-column m-0 p-0 col-3">
-                                <div class="form-check form-check-inline checkFormProd">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
-                                           value="option1">
-                                    <label class="form-check-label labelSize" for="inlineCheckbox5">S</label>
-                                </div>
-                                <div class="form-check form-check-inline checkFormProd">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
-                                           value="option2">
-                                    <label class="form-check-label labelSize" for="inlineCheckbox6">XXL</label>
-                                </div>
-                            </div>
-                            <div class="row d-flex flex-column m-0 p-0 col-3">
-                                <div class="form-check form-check-inline checkFormProd">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7"
-                                           value="option2">
-                                    <label class="form-check-label labelSize" for="inlineCheckbox7">M</label>
+                                    <input ref="size" class="form-check-input" type="checkbox"
+                                           v-bind:id="`id${size[0]}`"
+                                           v-bind:value="size"
+                                           v-model="filters.sizes"
+                                           @change="getFilterProducts"
+
+                                    >
+                                    <label class="form-check-label labelSize"
+                                           v-bind:for="`id${size}`">{{size[0]}}</label>
                                 </div>
                             </div>
                         </div>
@@ -182,31 +159,100 @@
                                     <input
                                             type="range"
                                             min="0"
-                                            max="1000"
+                                            max="10000"
                                             step="10"
-                                            v-model.number="priceFilter.min"
+                                            v-model.number="filters.price.min"
                                             @change="setRangeSlider"
+                                            @click="getFilterProducts()"
                                     />
                                     <input
                                             type="range"
                                             min="0"
-                                            max="1000"
+                                            max="10000"
                                             step="10"
-                                            v-model.number="priceFilter.max"
+                                            v-model.number="filters.price.max"
                                             @change="setRangeSlider"
+                                            @click="getFilterProducts()"
                                     />
                                 </div>
                                 <div class="row d-flex justify-content-between px-3 my-2">
-                                    <p>$ {{ priceFilter.min }}</p>
-                                    <p>$ {{ priceFilter.max }}</p>
+                                    <p>$ {{ filters.price.min }}</p>
+                                    <p>$ {{ filters.price.max }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="sortProd col-12 d-flex align-items-center px-3 my-3">
+                        <select class="custom-select col-2 px-1 mx-2  py-0"
+                                v-model="sort"
+                                @change="getOrdering()"
+                        >
+                            <option value="title">наименованию</option>
+                            <option value="quantity_views">популярности</option>
+                            <option value="price">цене</option>
+                        </select>
+                        <select class="custom-select col-2 px-1 mx-2 py-0"
+                                v-model="filters.limit"
+                                @change="getFilterProducts()"
+                        >
+                            <option value="3">3</option>
+                            <option selected>6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
+                        </select>
+
+                    </div>
 
                     <Catalog type="products" ref='catalogProducts'/>
 
-                    
+                    <div class="paginationProduct col-12 d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-between">
+                        <nav aria-label="Page navigation example" class="p-0">
+                            <ul class="pagination">
+                                <li v-if="paginationLink.previous !== null" class="page-item">
+                                    <a class="page-link page-list" href="#"
+                                       @click.prevent="linkPagination()"
+
+                                    >
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <span v-for="(page, index) of paginationList"
+                                      @click.prevent="linkPagination(page)" :key="index">
+                                    <input type="radio" class="d-none"
+                                           :id="index"
+                                           :value="page"
+
+                                    >
+                                    <label :for="index"
+
+                                           v-model="clickPage"
+                                    >
+                                      <li class="page-item"
+                                      ><a
+                                              class="page-link page-num"
+                                              href="#">{{++index}}</a>
+                                      </li>
+
+                                    </label>
+
+                                </span>
+
+
+                                <li v-if="paginationLink.next != null" class="page-item">
+                                    <a class="page-link page-list" href="#"
+                                       @click.prevent="linkPagination()" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <button type="button"
+                                @click.prevent="getAll()">
+                            View All
+                        </button>
+                    </div>
+
+
                 </div>
             </div>
         </main>
@@ -240,39 +286,107 @@
 </template>
 
 <script>
+    import Header from "../components/Header.vue";
     const Catalog = () => import('../components/Catalog.vue');
     const Breadcrubm = () => import('../components/Breadcrumb.vue');
 
-
     export default {
-        data() {
-            return {
-                priceFilter: {
-                    min: 0,
-                    max: 1000,
-                },
-              
-            }
+        extends: Header,
+        props: {
+            category: {type: [String, Number], default: ''},
+            subcategory: {type: [String, Number], default: ''},
         },
         components: {
             Catalog,
             Breadcrubm,
         },
 
+        computed: {
+
+            paginationLink() {
+                return {
+                    next: this.$store.state.products.next,
+                    previous: this.$store.state.products.previous
+                }
+            },
+            paginationList() {
+
+                let paginationList = []
+                let count = this.$store.state.products.count;
+                let limit = this.filters.limit;
+                let numberList = ((count - count % limit) / count) + 1
+                for (let i = 0; i < numberList; i++) {
+                    paginationList.push(i * limit)
+                }
+                return paginationList
+
+            },
+
+
+        },
         methods: {
-           
+            routeCategory() {
+                this.filters.category = this.$route.params.category;
+                this.filters.subcategory = this.$route.params.subcategory;
+            },
+            getOrdering() {
+                this.routeCategory();
+                this.$store.dispatch('getCatalog',
+                    `${this.filterProducts().getProductsParams(this.filters)}
+                    &${this.filterProducts().orderBy(this.sort)}`);
+            },
+
+            getFilterProducts() {
+                // sizes stack\
+                this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters))
+                this.getSizes();
+
+            },
+
+            //подтянуть размеры продуктов
+            getSizes() {
+                this.routeCategory();
+                this.$store.dispatch('getSizes', this.filterProducts().getSizes(this.filters))
+            },
+
             setRangeSlider() {
-                if (this.priceFilter.min > this.priceFilter.max) {
-                    [this.priceFilter.max, this.priceFilter.min] = [this.priceFilter.min, this.priceFilter.max]
-                };
-                this.$store.state.priceFilter = this.priceFilter
+                if (this.filters.price.min > this.filters.price.max) {
+                    [this.filters.price.max, this.filters.price.min] = [this.filters.price.min, this.filters.price.max];
+                }
+            },
+
+            getAll() {
+                this.routeCategory();
+                this.filters.limit = 200;
+                this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters));
+            },
+
+
+            linkPagination(page = false) {
+                this.routeCategory();
+                let urls = this.$store.state.products
+                let link = urls.next ? urls.next : urls.previous;
+                if (!page && link !== null) {
+                    let params = link.split('?')
+                    this.$store.dispatch('getCatalog', params[params.length-1]);
+                } else {
+                    const catalogFilter = this.filterProducts().getProductsParams(this.filters)
+                    let offset = `&offset=${page}`;
+                    let req = (catalogFilter + offset)
+                    this.$store.dispatch('getCatalog', req)
+                }
             },
         },
-        mounted() {
-            this.$store.commit('getCatalog');
-            this.$store.commit('filterItem');
-        }
 
+        mounted() {
+            this.routeCategory()
+        },
+        created() {
+
+        },
+        watch: {
+
+        }
     }
 </script>
 

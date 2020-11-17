@@ -2,7 +2,7 @@
  <div id="app">
         <!-- HEADER -->
         <Header ref="head" />
-      
+
         <div class="headerLine"></div>
 
         <!-- NAVIGATION -->
@@ -30,6 +30,9 @@ export default {
     Navigation,
     Footer,
   },
+    mounted() {
+
+    }
 
 };
 </script>

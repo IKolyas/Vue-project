@@ -3,16 +3,16 @@
         <div class="row col-5 img-responsive">
             <div class="productDet d-flex">
                 <router-link :to="{name: 'SinglePage', params: item}">
-                    <img :src="item.img" :alt="item.name">
+                    <img :src="item.img" :alt="item.title">
                 </router-link>
                 <div class="ProdDetText d-flex flex-column ml-3 text-capitalize ">
                     <router-link class="item__name" :to="{name: 'SinglePage', params: item}">
-                        <h3 class="my-2">{{item.name}}</h3> 
+                        <h3 class="my-2">{{item.title}}</h3>
                     </router-link>
-                    <span>Color: 
+                    <span>Color:
                         <mark>{{item.color}}</mark>
-                    </span> 
-                    <span>Size: 
+                    </span>
+                    <span>Size:
                         <mark>{{item.size}}</mark>
                     </span>
                 </div>
@@ -22,7 +22,7 @@
                 class="col-12 col-md-3 d-flex justify-content-center align-items-center">${{+item.price}}</span>
             <div class="ProdHeadInp col-12 col-md-3 d-flex justify-content-center align-items-center">
                 <label>
-                    <input 
+                    <input
                     type="number"
                     min="1"
                     max="20"
@@ -31,7 +31,7 @@
                     @change="tolalQuantity(item, quantity, item.size, item.color)"
                     required pattern="^[0-9]+$"
                    >
-                    
+
                 </label></div>
             <span class="col-12 col-md-2 pl-md-0 d-flex justify-content-center align-items-center">free</span>
             <span class="col-12 col-md-2 d-flex justify-content-center align-items-center">${{+item.price * +item.quantity}}</span>
@@ -46,7 +46,7 @@
 
 <script>
     const Item = () => import('./Item.vue');
-    
+
     export default {
         name: "ItemShopCart",
         components: {

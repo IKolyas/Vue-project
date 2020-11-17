@@ -51,16 +51,17 @@ body {
   0% {
     background-position: right 8% top;
   }
-  50%{
-    
+  50% {
+
     background-position: right 14% top 14%;
   }
   100% {
     background-position: right 8% top;
   }
 }
-#fon{
-  width:100%;
+
+#fon {
+  width: 100%;
   animation: animatedBackground 10s linear infinite;
   -moz-animation: animatedBackground 10s linear infinite;
   -webkit-animation: animatedBackground 10s linear infinite;
@@ -73,9 +74,12 @@ body {
     object-position: center center;
     object-fit: cover;
   }
+
   position: relative;
+
   .offerLink {
     transition: .4s;
+
     &:hover {
       box-shadow: 7px 1px 12px 2px $mainTextColorP;
     }
@@ -162,13 +166,15 @@ body {
       text-transform: uppercase;
       color: $mainThemeColor;
     }
-    button{
+
+    button {
       border: none;
       background-color: #FFFFFF;
       font-size: 1rem;
       font-weight: 400;
       color: $mainThemeColor;
-      i{
+
+      i {
         color: $mainThemeColor;
         font-size: 2rem;
       }
@@ -184,7 +190,8 @@ body {
     justify-content: center;
     background-color: rgba(58, 56, 56, 0);
     transition-duration: .7s;
-    &:hover{
+
+    &:hover {
       background-color: rgba(58, 56, 56, 0.83);
     }
 
@@ -201,22 +208,24 @@ body {
       line-height: 1.2;
       font-weight: 700;
       color: #ffffff;
-      i{
+
+      i {
         font-size: 1.3rem;
       }
     }
   }
 
 }
-.banner__container{
 
-  a {
+.banner__container {
+  .all__products {
     width: 212px;
     height: 48px;
     background-color: $mainThemeColor;
     color: #FFFFFF;
     text-decoration: none;
   }
+
   &:hover {
     text-decoration: none;
     transform: rotateX(360deg);
@@ -295,29 +304,27 @@ body {
   .newsNav {
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 20px;
     color: rgb(99, 99, 99);
     font-weight: 300;
 
-    .newsNavlink a {
+    li {
       text-decoration: none;
-      text-transform: uppercase;
       color: rgb(99, 99, 99);
-
 
       &:hover {
         color: $mainThemeColor;
         text-decoration: none;
+        cursor: pointer;
       }
     }
 
     .newsNavLinkActive {
-      text-decoration: none;
-      text-transform: uppercase;
       color: $mainThemeColor;
       font-weight: 700;
     }
+
 
   }
 
@@ -327,6 +334,7 @@ body {
   font-size: 13px;
   font-weight: 700;
   color: $mainTextColor;
+
   .productDet {
     img {
       width: 101px;
@@ -460,7 +468,7 @@ body {
 
 .corImg {
   width: 597px;
-  height: 724px;
+  max-height: 724px;
   object-position: center center;
   object-fit: contain;
   border: none;
@@ -522,11 +530,12 @@ body {
       margin-right: 2px;
       color: $mainThemeColor;
     }
+
     span {
       text-transform: uppercase;
       color: $mainTextColor;
     }
-    
+
   }
 
   .money {
@@ -616,17 +625,35 @@ body {
 }
 
 .drBtnContProd {
-  a {
-    font-size: 14px;
-    line-height: 33px;
-    font-weight: 500;
-    color: #6f6e6e;
+
+  font-size: 14px;
+  line-height: 33px;
+  font-weight: 500;
+  color: #6f6e6e;
+
+  ul {
+    list-style: none;
+  }
+
+  .category__accordion {
+    font-weight: 700;
+    font-size: 1.1rem;
 
     &:hover {
       color: $mainThemeColor;
-      text-decoration: none;
+      cursor: pointer;
     }
   }
+
+  .subcategory__accordion {
+    font-size: .9rem;
+
+    &:hover {
+      color: $mainThemeColor;
+      cursor: pointer;
+    }
+  }
+
 
 }
 
@@ -635,11 +662,13 @@ body {
 
   .range_slider {
     position: relative;
+
     svg, input[type=range] {
       position: absolute;
       left: 0;
       bottom: 0;
     }
+
     input {
       width: 100%;
     }
@@ -652,7 +681,7 @@ body {
       border: 1px solid #000;
       background-color: $mainThemeColor;
     }
-  
+
     input[type=range]::-webkit-slider-thumb {
       z-index: 1;
       position: relative;
@@ -684,7 +713,8 @@ body {
   }
 
   .labelSize {
-    font-size: 14px;
+    cursor: pointer;
+    font-size: 1.1rem;
     line-height: 20px;
     font-weight: 400;
     text-transform: uppercase;
@@ -698,15 +728,18 @@ body {
       font-weight: 400;
       color: #6f6e6e;
       text-decoration: none;
-      &:hover{
+
+      &:hover {
         text-decoration: none;
         color: $mainThemeColor;
       }
     }
+
     .breadcrumb-item:not(:nth-child(1))::before {
       content: "|" !important;
     }
   }
+
   .active {
     color: $mainThemeColor;
   }
@@ -714,23 +747,23 @@ body {
 
 
 .sortProd {
-      select {
-        width: 100px;
-        font-size: 14px;
-        line-height: 26px;
-        font-weight: 400;
-        color: $mainTextColor;
-      }
+  select {
+    width: 100px;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+    color: $mainTextColor;
+  }
 
-      button {
-        background-color: #c4c4c4;;
-        height: 30px;
-        border: 1px solid $mainTextColorP;
-        color: $mainTextColor;
-        font-size: 14px;
-        line-height: 26px;
-        font-weight: 400;
-      }
+  button {
+    background-color: #c4c4c4;;
+    height: 30px;
+    border: 1px solid $mainTextColorP;
+    color: $mainTextColor;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+  }
 }
 
 .paginationProduct {
@@ -796,9 +829,6 @@ body {
 
 //-----------------------check----------------------
 
-.card {
-  border: none !important;
-}
 
 .cardCheckOut {
   .card-header {
@@ -814,7 +844,8 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     color: $mainTextColor;
-    &:hover, &:active, &:focus{
+
+    &:hover, &:active, &:focus {
       box-shadow: none;
       text-decoration: none;
       color: $mainThemeColor;
@@ -836,11 +867,13 @@ body {
     font-weight: 400;
     color: $mainTextColorP;
   }
+
   a:hover {
     text-decoration: none;
     color: $mainThemeColor;
   }
-  .checkButton{
+
+  .checkButton {
     width: 180px;
     height: 50px;
     border: 1.0px solid #eaeaea;
@@ -849,32 +882,37 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     color: #4a4a4a;
-    &:hover{
+
+    &:hover {
       background-color: $mainThemeColor;
       border: none;
     }
   }
 
-  .inpCheck{
+  .inpCheck {
     width: 390px;
     height: 45px;
     background-color: #ffffff;
     border: 1.0px solid #eaeaea;
-    &:hover, &:active, &:focus{
+
+    &:hover, &:active, &:focus {
       box-shadow: none;
     }
   }
-  mark{
+
+  mark {
     background-color: transparent;
     color: $mainThemeColor;
   }
-  span{
+
+  span {
     font-size: 13px;
     line-height: 20px;
     font-weight: 700;
     color: #ff0d0d;
   }
-  .forgotPass{
+
+  .forgotPass {
     font-size: 14px;
     line-height: 20px;
     font-weight: 700;

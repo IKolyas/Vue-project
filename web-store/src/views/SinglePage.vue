@@ -1,16 +1,17 @@
 <template>
     <div>
         <div class="newsProd">
-            <Breadcrubm />
+            <Breadcrubm type="single" :item="item"/>
         </div>
         <div class="col-12 corusBlock">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 corImg" :src="$route.params.img" :alt="$route.params.name">
+                        <img class="d-block w-100 corImg py-4" :src="item.img[0].path"
+                             :alt="item.title">
                     </div>
-                    <div class="carousel-item" v-for="img of $route.params.images" v-bind:key="img">
-                        <img class="d-block w-100 corImg" :src="img" :alt="$route.params.name">
+                    <div class="carousel-item" v-for="img of item.img">
+                        <img class="d-block w-100 corImg" :src="img.path" :alt="item.title">
                     </div>
                 </div>
                 <a class="carousel-control-prev " href="#carouselExampleControls" role="button" data-slide="prev">
@@ -31,47 +32,49 @@
                     <div class="plrow plrowActive"></div>
                     <div class="plrow"></div>
                 </div>
-                <h2 class="col-12 text-center">{{$route.params.name}}</h2>
+                <h2 class="col-12 text-center">{{item.title}}</h2>
                 <p class="col-12 d-flex align-items-center justify-content-center">
-                    {{$route.params.description}}
+                    {{item.description}}
                 </p>
                 <div class="item-info col-12 d-flex align-items-stretch justify-content-center">
-                    <p class="mx-4">MATERIAL: <span>{{$route.params.material}}</span></p>
+                    <p class="mx-4">MATERIAL: <span> </span></p>
                     <p class="mx-4">DESIGNER: <span>BINBURHAN</span></p>
                 </div>
-                <div class="money col-12 d-flex align-items-stretch justify-content-center">${{$route.params.price}}</div>
+                <div class="money col-12 d-flex align-items-stretch justify-content-center">${{item.price}}
+                </div>
                 <div class="lineList col-12 d-flex align-items-center justify-content-center"></div>
                 <div class="select__params row col-12 d-flex align-items-center justify-content-center">
-                    <label class="d-flex flex-column mx-4">CHOOSE COLOR
-                        <select class="px-2 mt-2" v-model="color">
-                            <option  
-                            v-for="color of $route.params.color" v-bind:key="color">{{color}}
+                    <label v-if="item.color" class="d-flex flex-column mx-4">CHOOSE COLOR
+                        <select  class="px-2 mt-2" >
+                            <option
+                                    v-for="color of item.color" v-bind:key="color">{{color}}
                             </option>
                         </select>
                     </label>
-                    <label class="d-flex flex-column mx-4">CHOOSE SIZE
-                        <select class="px-2 mt-2"  v-model="size">
-                            <option  
-                            v-for="size of $route.params.size" v-bind:key="size">{{size}}
+                    <label v-if="item.size" class="d-flex flex-column mx-4">CHOOSE SIZE
+                        <select class="px-2 mt-2">
+                            <option>{{item.size}}
                             </option>
                         </select>
                     </label>
                     <label class="d-flex flex-column mx-4 ">QUANTITY
-                        <input 
-                        type="number" 
-                        min="1"
-                        max="50"
-                        step="1"
-                        v-model.number="count"
-                        class="px-4 mt-2"
-                        pattern="^[0-9]+$">
+                        <input
+                                type="number"
+                                min="1"
+                                max="50"
+                                step="1"
+                                class="px-4 mt-2"
+                                pattern="^[0-9]+$"
+                                value="1"
+                        >
+
                     </label>
                 </div>
                 <div class="ButList col-12 d-flex justify-content-center align-items-center pb-5">
-                    <button 
-                    type="button" 
-                    @click="addItem($route.params, count, size, color)"
-                    >
+                    <button
+                            type="button">
+<!--                            @click="addItem($route.params, count, size, color)"-->
+
                         <svg class="bi bi-cart2" width="1.6em" height="1.6em" viewBox="0 0 16 16" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -85,11 +88,10 @@
         <div class="container">
             <div class="row labelText d-flex justify-content-center col-12 my-2 pb-4">you may like also</div>
         </div>
-        <div class="container d-flex justify-content-center justify-content-lg-between mt-5">
+        <div class="container ">
 
-                <!--CATALOG -->
-                    <Catalog type="singlePage" />   
-            
+            <!--CATALOG -->
+            <Catalog type="singlePage"/>
         </div>
     </div>
 </template>
@@ -105,26 +107,25 @@
             Breadcrubm,
         },
 
-         data() {
+        data() {
             return {
-                count: 1,
-                color: '',
-                size: ''
+
             };
         },
-
+        computed: {
+            item() {
+                return this.$store.state.product
+            }
+        },
         methods: {
-            addItem(item, count, size, color) {
-                let find = this.$store.state.itemsBasket.find((el) => el.id == item.id);
-                if (find) {
-                    this.$store.commit('quantity', {item, count, size, color})
-                } else {
-                    this.$store.commit('add', {item, count, size, color});
-                }
-            },
+
         },
         mounted() {
 
+        },
+        created() {
+            this.$store.dispatch('getCatalog')
+            this.$store.dispatch('getProductOne', this.$route.params.id)
         }
     }
 </script>

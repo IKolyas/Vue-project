@@ -8,9 +8,9 @@ module.exports = {
         return basket;
     },
     change(basket, id, quantity, size=null, color=null) {
-        
+
         let find = _search(basket.contents, id);
-        ((size === null) & (color === null)) ? find.quantity = quantity : find.quantity += quantity;
+        ((size === null) && (color === null)) ? find.quantity = quantity : find.quantity += quantity;
         find.color = color;
         find.size = size;
         return basket;

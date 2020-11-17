@@ -1,6 +1,11 @@
-export let get = url => {
+
+export let get = (url) => {
     return fetch(url).then(d => d.json());
 }
+
+
+
+
 
 export let post = (url, item) => {
     return fetch(url, {

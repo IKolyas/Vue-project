@@ -70,13 +70,9 @@
         </div>
         <div class="container d-flex justify-content-center align-items-center mb-5">
             <router-link class="banner__container" :to="{name: 'Products'}">
-                <div>
-                    <a 
-                    class="d-flex justify-content-center align-items-center"
-                    href="#">
+                <div class="all__products d-flex align-items-center justify-content-center">
                     Browse All Product
                     <i class="pl-2 fa fa-long-arrow-right" aria-hidden="true"></i>
-                    </a>
                 </div>
             </router-link>
         </div>
@@ -132,6 +128,9 @@
         components: {
             Catalog,
         },
+        mounted() {
+            this.$store.dispatch("getCatalog");
+        }
     }
 </script>
 

@@ -1,6 +1,6 @@
 {
- "amount": 122,
- "countGoods": 2,
+ "amount": 0,
+ "countGoods": 0,
  "contents": [
   {
    "id": 10,
@@ -15,24 +15,39 @@
    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum. Tellus mauris a diam maecenas sed enim ut sem. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. ",
    "rating": null,
    "material": "cotton",
-   "color": "green",
-   "size": "XXL",
-   "quantity": 13
+   "color": null,
+   "size": null,
+   "quantity": 4
   },
   {
-   "id": 3,
-   "name": "black crocodile",
-   "price": 33,
-   "img": "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/man003.jpeg",
+   "id": 6,
+   "name": "monkey with a grenade",
+   "price": 88,
+   "img": "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/woman005.png",
    "images": [
-    "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/man003.jpeg"
+    "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/woman005.png"
    ],
    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum. Tellus mauris a diam maecenas sed enim ut sem. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. ",
    "rating": null,
    "material": "cotton",
    "color": "darkgreen",
    "size": "XL",
-   "quantity": 2
+   "quantity": 1
+  },
+  {
+   "id": 7,
+   "name": "green Panda",
+   "price": 125,
+   "img": "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/woman006.jpeg",
+   "images": [
+    "https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/catalog/woman006.jpeg"
+   ],
+   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum. Tellus mauris a diam maecenas sed enim ut sem. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. ",
+   "rating": null,
+   "material": "cotton",
+   "color": null,
+   "size": null,
+   "quantity": 3
   }
  ]
 }

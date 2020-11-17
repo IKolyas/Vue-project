@@ -226,12 +226,16 @@
     justify-content: center;
     height: 2.5rem;
     text-decoration: none;
-    color: $mainTextColor;
+    color: $mainTextColorP;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     padding: 0 1.5rem;
     border-bottom: 4px solid #ffffff;
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+    }
     &:hover {
       text-shadow: 2px 4px 6px rgba(150, 150, 150, 1);
       text-decoration: none;
@@ -244,46 +248,48 @@
       object-position: center center;
       object-fit: cover;
     }
+    .submenu {
+      text-shadow: none;
+      background-color: #ffffff;
+      border-radius: 5.0px;
+      list-style: none;
+      border: 1px solid $mainThemeColor;
+      position: absolute;
+      top: 40px;;
+      opacity: 0;
+      z-index: 5;
+      transform: perspective(600px) rotateX(-90deg);
+      transform-origin: 0 0;
+      transition: .2s ease-in-out;
+      h3 {
+        font-size: 1rem;
+        text-align: center;
+        color: $mainTextColor;
+        font-weight: 500;
+      }
+
+      .subMenuLink {
+        text-transform: none;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: 400;
+        letter-spacing: 0.025em;
+        color: #646464;
+        transition: .2s ease-in-out;
+      }
+      & li:hover {
+        text-shadow: 2px 4px 6px rgba(150, 150, 150, 1);
+        color: $mainTextColor;
+      }
+    }
   }
 
-  .submenu {
-    width: 846px;
-    height: 310px;
-    background-color: #ffffff;
-    border-radius: 5.0px;
-    list-style: none;
-    border: none;
-    position: absolute;
-    left: -100px;
-    top: 40px;;
-    opacity: 0;
-    z-index: 5;
-    transform: perspective(600px) rotateX(-90deg);
-    transform-origin: 0 0;
-    transition: .2s ease-in-out;
 
-    h3 {
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.025em;
-      color: #232323;
-    }
-
-    .subMenuLink {
-      text-transform: none;
-      text-decoration: none;
-      font-size: 14px;
-      line-height: 28px;
-      font-weight: 400;
-      letter-spacing: 0.025em;
-      color: #646464;
-    }
-  }
 }
 
 .topNavMobile {
-  a {
+  a, h4 {
     color: $mainThemeColor;
     display: flex;
     justify-content: center;

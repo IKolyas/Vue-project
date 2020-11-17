@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Navigation from "../components/Navigation";
 
 const Index = () => import('../views/Index.vue');
 const Products = () => import('../views/Products.vue');
@@ -17,13 +18,13 @@ const routes = [
     props: true,
   },
   {
-    path: '/products',
+    path: '/products/:category?/:subcategory?',
     name: 'Products',
     component: Products,
     props: true,
   },
   {
-    path: '/single-page/:id',
+    path: '/single-page/:id?',
     name: 'SinglePage',
     component: SinglePage,
     props: true,
